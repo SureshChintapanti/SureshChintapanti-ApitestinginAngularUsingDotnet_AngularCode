@@ -1,0 +1,112 @@
+<!--<div class="col-12 d-flex align-items-center justify-content-center btn1">
+  <button kendoButton *ngIf="!opened" (click)="open()">
+    Add Employee
+  </button>
+</div>
+<div>
+  <p *ngIf="dataSaved" class="">Data has been saved</p>
+  <kendo-window title="Please provide additional data" *ngIf="opened" (close)="close()" [minWidth]="250"
+    [width]="650">
+    <form class="k-form Add_window" [formGroup]="formGroup">
+      <fieldset>
+        <legend>Employee Details</legend>
+
+        <label class="k-form-field">
+          <span>Employee Name</span>
+          <kendo-textbox placeholder="Your Name" formControlName = "EmployeeName"></kendo-textbox>
+        </label>
+        <label class="k-form-field">
+          <span>Department</span>
+          <kendo-dropdownlist [data]="dropdownlistitems" formControlName="Department"></kendo-dropdownlist>
+        </label>
+        <label class="k-form-field">
+          <span>Date OF Join</span>
+          <kendo-datepicker formControlName="DateOFJoin"></kendo-datepicker>
+        </label>
+      </fieldset>
+
+      <div class="k-actions k-actions-end">
+        <button kendoButton type="button" (click)="close()">
+          Cancel
+        </button>
+        <button kendoButton themeColor="primary" type="button" (click)="saveData()">
+          Save
+        </button>
+      </div>
+    </form>
+  </kendo-window>
+</div>-->
+
+<div class="col-12 d-flex align-items-center justify-content-center btn1">
+  <button kendoButton *ngIf="!opened" (click)="open()">Add Employee</button>
+</div>
+<div>
+  <p *ngIf="dataSaved" class="">Data has been saved</p>
+  <kendo-window title="Please provide additional data" *ngIf="opened" (close)="close()" [minWidth]="250" [width]="650">
+    <form class="k-form Add_window" [formGroup]="formGroup">
+      <fieldset>
+        <legend>Employee Details</legend>
+
+        <label class="k-form-field">
+          <span>Employee Name</span>
+          <kendo-textbox [(ngModel)]="newEmployee.EMP_NAME" placeholder="Your Name"
+            formControlName="EmployeeName"></kendo-textbox>
+        </label>
+        <label class="k-form-field">
+          <span>Department</span>
+          <kendo-dropdownlist [(ngModel)]="newEmployee.DEP_ID" [data]="dropdownlistitems"
+            formControlName="Department"></kendo-dropdownlist>
+        </label>
+        <label class="k-form-field">
+          <span>Date OF Join</span>
+          <kendo-datepicker [(ngModel)]="newEmployee.DATE_OF_JOIN" formControlName="DateOFJoin"></kendo-datepicker>
+        </label>
+      </fieldset>
+
+      <div class="k-actions k-actions-end">
+        <button kendoButton type="button" (click)="close()">Cancel</button>
+        <button kendoButton themeColor="primary" type="button" (click)="addEmployee()">
+          Save
+        </button>
+      </div>
+    </form>
+  </kendo-window>
+</div>
+
+
+<!--
+<div class="col-12 d-flex align-items-center justify-content-center btn1">
+  <button kendoButton *ngIf="!opened" (click)="open()">Add Employee</button>
+</div>
+<div>
+  <p *ngIf="dataSaved" class="">Data has been saved</p>
+  <kendo-window title="Please provide additional data" *ngIf="opened" (close)="close()" [minWidth]="250" [width]="650">
+    <form class="k-form Add_window" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+      <fieldset>
+        <legend>Employee Details</legend>
+
+        <label class="k-form-field">
+          <span>Employee Name</span>
+          <kendo-textbox  placeholder="Your Name"
+            formControlName="EMP_NAME"></kendo-textbox>
+        </label>
+        <label class="k-form-field">
+          <span>Department</span>
+          <kendo-dropdownlist  [data]="dropdownlistitems"
+            formControlName="DEP_NAME"></kendo-dropdownlist>
+        </label>
+        <label class="k-form-field">
+          <span>Date OF Join</span>
+          <kendo-datepicker  formControlName="DATE_OF_JOIN"></kendo-datepicker>
+        </label>
+      </fieldset>
+
+      <div class="k-actions k-actions-end">
+        <button kendoButton type="button" (click)="close()">Cancel</button>
+        <button kendoButton themeColor="primary" type="button"  >
+          Save
+        </button>
+      </div>
+    </form>
+  </kendo-window>
+</div> -->

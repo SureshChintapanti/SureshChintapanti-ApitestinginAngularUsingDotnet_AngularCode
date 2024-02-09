@@ -1,0 +1,12 @@
+.command-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.command-button1 {
+  flex: 1;
+  color: white;
+}
+.command-button {
+  flex: 1;
+}

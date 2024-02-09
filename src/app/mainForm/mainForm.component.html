@@ -1,0 +1,105 @@
+<div class="main_container">
+  <div class="row mx-auto all_details_container">
+    <div class="col-12 find_card_1">
+      <div class="input-group mx-auto">
+        <div class="input-group-prepend mx-auto">
+          <form class="k-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+            <fieldset>
+              <legend class="legend">Employee Details</legend>
+              <label class="k-form-field label_1">
+                <input type="text" class="form-control" formControlName="emP_ID" id="emp_ID"
+                  placeholder="Enter Employee Id" />
+              </label>
+              <label class="k-form-field label_1">
+                <input type="text" class="form-control" formControlName="emP_NAME" id="emp_NAME"
+                  placeholder="Enter Employee Name" />
+              </label>
+              <label class="k-form-field label_1">
+                <kendo-combobox placeholder="Department" formControlName="departmenT_NAME" id="departmenT_NAME"
+                  [data]="listitems"><span class="input-group-text"><i class="fas fa-user"></i></span></kendo-combobox>
+              </label>
+              <label class="k-form-field label_1">
+                <kendo-datepicker placeholder="Date of Join" format="yyyy-MM-dd" id="datE_OF_JOIN"
+                  formControlName="datE_OF_JOIN"></kendo-datepicker>
+              </label>
+            </fieldset>
+            <div class="col-12 d-flex align-items-center justify-content-center btn">
+              <div class="buttons">
+                <button kendoButton [toggleable]="true" class="buttons" (click)="toggleGridVisibility()">
+                  Find
+                </button>
+              </div>
+
+              <div class="buttons">
+                <button kendoButton [toggleable]="true" class="buttons" (click)="resetForm()">
+                  Reset
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isVisible">
+    <ul>
+      <li *ngFor="let employee of employees">
+        {{ employee.emP_ID }} - {{ employee.emP_NAME }} -
+        {{ employee.departmenT_NAME }} - {{ employee.datE_OF_JOIN }}
+      </li>
+    </ul>
+  </div>
+
+  <app-adding-employee></app-adding-employee>
+
+  <!-- <div class="grid_module mx-auto all_details_container2" *ngIf="isVisible" (click)="onContainerClick($event)">
+    <div class="kendo-grid">
+      <kendo-grid [data]="employees" [height]="400" [pageSize]="10" [pageable]="true" [sortable]="true"
+        [navigable]="true">
+        <kendo-grid-column [width]="150" field="emP_ID" title="ID"></kendo-grid-column>
+        <kendo-grid-column field="emP_NAME" editor="text" title="EPLOYEE NAME" [width]="200"></kendo-grid-column>
+        <kendo-grid-column field="departmenT_NAME" editor="text" title="DEPARTMENT NAME"
+          [width]="200"></kendo-grid-column>
+        <kendo-grid-column field="datE_OF_JOIN" editor="date" title="DATE OF JOIN" [width]="200"></kendo-grid-column>
+        <kendo-grid-command-column [width]="200" title="Command">
+          <ng-template kendoGridCellTemplate let-isNew="isNew">
+            <div class="command-buttons">
+              <button kendoButton class="command-button1 bg-primary" [toggleable]="true" (click)="openDialog()">
+                Edit
+              </button>
+
+              <button kendoButton class="command-button" [toggleable]="true">
+                Remove
+              </button>
+            </div>
+          </ng-template>
+        </kendo-grid-command-column>
+      </kendo-grid>
+    </div>
+  </div>
+</div> -->
+<div class="grid_module mx-auto all_details_container2" *ngIf="isVisible" (click)="onContainerClick($event)">
+  <div class="kendo-grid">
+    <kendo-grid [data]="employees" [height]="400" [pageSize]="10" [pageable]="true" [sortable]="true" [navigable]="true" >
+      <kendo-grid-column field="emP_ID" title="ID" [width]="150"></kendo-grid-column>
+      <kendo-grid-column field="emP_NAME" title="Employee Name" [width]="200"></kendo-grid-column>
+      <kendo-grid-column field="departmenT_NAME" title="Department Name" [width]="200"></kendo-grid-column>
+      <kendo-grid-column field="datE_OF_JOIN" title="Date of Join" [width]="200"></kendo-grid-column>
+      <kendo-grid-command-column title="Command" [width]="200">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          <div class="command-buttons">
+            <button kendoButton class="command-button1 bg-primary" [toggleable]="true" (click)="openDialog()">
+              Edit
+            </button>
+            <button kendoButton class="command-button" [toggleable]="true" (click)="removeEmployee(dataItem)">
+              Remove
+            </button>
+          </div>
+        </ng-template>
+      </kendo-grid-command-column>
+    </kendo-grid>
+  </div>
+</div>
+
+
+<div kendoDialogContainer></div>

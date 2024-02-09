@@ -1,0 +1,46 @@
+<!-- <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+  <label for="EMP_NAME">Employee Name:</label>
+  <input type="text" id="EMP_NAME" formControlName="EMP_NAME" />
+
+  <label for="DEP_NAME">Department Name:</label>
+  <input type="text" id="DEP_NAME" formControlName="DEP_NAME" />
+
+  <label for="DATE_OF_JOIN">Date of Join:</label>
+  <input type="date" id="DATE_OF_JOIN" formControlName="DATE_OF_JOIN" />
+
+  <button type="submit" [disabled]="!employeeForm.valid">Submit</button>
+</form> -->
+
+
+
+<div class="col-12 d-flex align-items-center justify-content-center btn1">
+  <button kendoButton *ngIf="!opened" (click)="open()">Add Employee</button>
+</div>
+<div>
+ 
+  <kendo-window title="Please provide additional data" *ngIf="opened" (close)="close()" [minWidth]="250" [width]="650">
+    <form class="k-form Add_window" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+      <fieldset>
+        <legend>Employee Details</legend>
+
+        <label class="k-form-field">
+          <span>Employee Name</span>
+          <kendo-textbox placeholder="Your Name" formControlName="EMP_NAME"></kendo-textbox>
+        </label>
+        <label class="k-form-field">
+          <span>Department</span>
+          <kendo-dropdownlist [data]="dropdownlistitems" formControlName="DEP_NAME"></kendo-dropdownlist>
+        </label>
+        <label class="k-form-field">
+          <span>Date OF Join</span>
+          <kendo-datepicker formControlName="DATE_OF_JOIN"></kendo-datepicker>
+        </label>
+      </fieldset>
+
+      <div class="k-actions k-actions-end">
+        <button kendoButton type="button" (click)="close()">Cancel</button>
+        <button kendoButton themeColor="primary" type="submit" [disabled]="!employeeForm.valid">Save</button>
+      </div>
+    </form>
+  </kendo-window>
+</div>

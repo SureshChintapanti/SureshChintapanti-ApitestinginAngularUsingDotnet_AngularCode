@@ -1,0 +1,47 @@
+
+
+<div class="dialog">
+
+    <form class="k-form Add_window" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+      <fieldset>
+        <legend>Employee Details</legend>
+
+        <label class="k-form-field">
+          <span>Employee Name</span>
+          <kendo-textbox
+
+            placeholder="Your Name"
+            formControlName="EMP_NAME"
+          ></kendo-textbox>
+        </label>
+        <label class="k-form-field">
+          <span>Department</span>
+          <kendo-dropdownlist
+
+            [data]="dropdownlistitems"
+            formControlName="DEP_NAME"
+          ></kendo-dropdownlist>
+        </label>
+        <label class="k-form-field">
+          <span>Date OF Join</span>
+          <kendo-datepicker
+
+            formControlName="DATE_OF_JOIN"
+          ></kendo-datepicker>
+        </label>
+      </fieldset>
+
+      <div class="k-actions k-actions-end">
+        <button kendoButton type="button" (click)="close()">Cancel</button>
+        <button
+          kendoButton
+          themeColor="primary"
+          type="submit"
+
+        >
+          Save
+        </button>
+      </div>
+    </form>
+
+</div>

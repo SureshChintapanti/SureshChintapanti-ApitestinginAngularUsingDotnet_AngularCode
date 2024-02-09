@@ -1,0 +1,12 @@
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+  <label for="EMP_NAME">Employee Name:</label>
+  <input type="text" id="EMP_NAME" formControlName="EMP_NAME" />
+
+  <label for="DEP_NAME">Department Name:</label>
+  <input type="text" id="DEP_NAME" formControlName="DEP_NAME" />
+
+  <label for="DATE_OF_JOIN">Date of Join:</label>
+  <input type="date" id="DATE_OF_JOIN" formControlName="DATE_OF_JOIN" />
+
+  <button type="submit" [disabled]="!employeeForm.valid">Submit</button>
+</form>
